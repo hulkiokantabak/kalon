@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Tight no-injection posture. Self-contained except GoatCounter (privacy-friendly, cookieless page-view analytics — no personal data), allowed via a strict named-host allowlist. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://gc.zgo.at; style-src 'self'; img-src 'self' data: https://kalon.goatcounter.com; font-src 'self'; connect-src https://kalon.goatcounter.com; manifest-src 'self'; base-uri 'none'; form-action 'none'" />
+<title>KALÓN — Instruments of Beauty</title>
+<meta name="description" content="Beauty is not one thing. It is a few recurring moves — proportion, harmony, symmetry held in tension with variation, the chiaroscuro of light and shadow, and honored imperfection — and the last move belongs to the beholder. Five playable instruments." />
+<meta name="color-scheme" content="light" />
+<meta name="theme-color" content="#f4efe6" />
+<link rel="apple-touch-icon" href="assets/icon-180.png" />
+<link rel="manifest" href="manifest.webmanifest" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-title" content="KALÓN" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta property="og:title" content="KALÓN — Instruments of Beauty" />
+<meta property="og:description" content="Five playable instruments of beauty: proportion, harmony, symmetry &amp; variation, the chiaroscuro of light and shadow, imperfection — and the beholder who completes them." />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f4efe6'/%3E%3Cg fill='%23b8843f'%3E%3Ccircle cx='16' cy='16' r='2.2'/%3E%3Ccircle cx='22' cy='14' r='1.8'/%3E%3Ccircle cx='11' cy='19' r='1.8'/%3E%3Ccircle cx='19' cy='22' r='1.6'/%3E%3Ccircle cx='12' cy='11' r='1.6'/%3E%3Ccircle cx='23' cy='20' r='1.3'/%3E%3C/g%3E%3C/svg%3E" />
+<link rel="stylesheet" href="css/kalon.css" />
+</head>
+<body>
+<a class="skip-link" href="#overture">Skip to content</a>
+
+<header class="masthead">
+  <div class="masthead__inner">
+    <a class="wordmark" href="./" id="top">KALÓN</a>
+    <nav class="masthead__nav" aria-label="Pages">
+      <a href="./" aria-current="page">Instruments</a>
+      <a href="concepts.html">Concepts</a>
+      <a href="about.html">About</a>
+      <a href="colophon.html">Colophon</a>
+    </nav>
+    <div class="masthead__controls">
+      <button type="button" class="toggle" data-toggle="motion" aria-pressed="true">Motion: on</button>
+      <button type="button" class="toggle" data-toggle="sound" aria-pressed="false">Sound: off</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- OVERTURE -->
+  <section id="overture" class="overture" tabindex="-1">
+    <p class="kicker">Instruments of Beauty</p>
+    <h1 class="display">Beauty is not one&nbsp;thing.</h1>
+    <p class="lede">
+      Ask a mathematician, a monk, and a child what beauty is, and you’ll get three answers —
+      all of them right. What follows is not a definition but a set of instruments: five small
+      machines and one mirror, each holding a move beauty keeps making — <em>proportion, harmony,
+      symmetry loosened by variation, the chiaroscuro of light against dark, and the grace we
+      grant to what is broken.</em> Two of them disagree: proportion says waste nothing; the
+      mended bowl says keep the wound. Beauty is not a rule — it’s the argument these moves are
+      having. Play them. The last move is yours.
+    </p>
+    <p class="scroll-hint" aria-hidden="true"><span class="scroll-hint__label">five instruments to play</span> ↓</p>
+  </section>
+
+  <!-- I · PROPORTION -->
+  <section id="proportion" class="instrument" data-instrument="proportion" aria-labelledby="h-proportion">
+    <div class="instrument__text">
+      <p class="numeral">I</p>
+      <h2 id="h-proportion">Proportion</h2>
+      <p>
+        A sunflower does not know the golden ratio, and yet it builds one. Each seed turns
+        from the last by the same angle — about <strong>137.5°</strong> — and only near that
+        angle does the head fill with no crowding and no gaps. Turn the dial away and the
+        order dissolves into spokes; return, and it heals. Proportion is not a rule pressed
+        onto a thing. It is the angle at which a thing stops wasting itself.
+      </p>
+      <p class="lineage">In the tradition of the sunflower and D’Arcy Thompson’s <em>On Growth and Form</em>.</p>
+    </div>
+    <figure class="instrument__stage">
+      <canvas data-role="canvas" width="640" height="640" role="img"
+        aria-label="A field of florets arranged by a divergence angle. Near the golden angle they pack into a smooth spiral; away from it, spokes and gaps appear."></canvas>
+      <figcaption class="visually-hidden">Phyllotaxis: points placed at each multiple of the divergence angle.</figcaption>
+      <div class="controls">
+        <p class="hint">Drag the flower, or the dial below.</p>
+        <label class="control">
+          <span class="control__label">Divergence angle</span>
+          <input type="range" data-role="theta" min="120" max="150" step="0.1" value="137.5"
+            aria-label="Divergence angle in degrees" />
+        </label>
+        <button type="button" class="btn" data-role="golden">Find the golden angle</button>
+        <p class="readout" data-role="readout" aria-live="polite"></p>
+      </div>
+    </figure>
+  </section>
+
+  <!-- II · HARMONY -->
+  <section id="harmony" class="instrument" data-instrument="harmony" aria-labelledby="h-harmony">
+    <div class="instrument__text">
+      <p class="numeral">II</p>
+      <h2 id="h-harmony">Harmony</h2>
+      <p>
+        Pluck two strings whose lengths make a simple ratio — <strong>2:1</strong>,
+        <strong>3:2</strong> — and the ear calls it consonance. Trace those same ratios with a
+        pendulum and the curve closes into a stable figure that keeps its shape as it settles.
+        Ratios the ear can’t resolve draw lines that never come home. Harmony is arithmetic you can hear.
+        Here you can also see it — and, if you like, hear it too.
+      </p>
+      <p class="lineage">The Victorian harmonograph; behind it, Kepler and Chladni. These are the pure whole-number ratios — <em>just intonation</em>; a piano quietly rounds them off.</p>
+    </div>
+    <figure class="instrument__stage">
+      <canvas data-role="canvas" width="640" height="640" role="img"
+        aria-label="A harmonograph curve. Simple frequency ratios close into a stable figure; complex ratios tangle."></canvas>
+      <div class="controls">
+        <p class="hint">Tap an interval, or slide the ratio and watch the curve refuse to close.</p>
+        <div class="chips" role="group" aria-label="Musical intervals">
+          <button type="button" class="chip" data-role="interval" data-p="2" data-q="1" aria-pressed="false">Octave <span>2:1</span></button>
+          <button type="button" class="chip" data-role="interval" data-p="3" data-q="2" aria-pressed="true">Fifth <span>3:2</span></button>
+          <button type="button" class="chip" data-role="interval" data-p="4" data-q="3" aria-pressed="false">Fourth <span>4:3</span></button>
+          <button type="button" class="chip" data-role="interval" data-p="5" data-q="4" aria-pressed="false">Third <span>5:4</span></button>
+        </div>
+        <button type="button" class="btn" data-role="hear">♪ Hear this interval</button>
+        <label class="control">
+          <span class="control__label">Frequency ratio</span>
+          <input type="range" data-role="ratio" min="1" max="3" step="0.001" value="1.5"
+            aria-label="Frequency ratio between the two pendulums" />
+        </label>
+        <p class="readout" data-role="readout" aria-live="polite"></p>
+      </div>
+    </figure>
+  </section>
+
+  <!-- III · SYMMETRY & VARIATION -->
+  <section id="symmetry" class="instrument" data-instrument="symmetry" aria-labelledby="h-symmetry">
+    <div class="instrument__text">
+      <p class="numeral">III</p>
+      <h2 id="h-symmetry">Symmetry &amp; Variation</h2>
+      <p>
+        Perfect symmetry is a kind of death. A snowflake moves us because it is nearly the
+        same six times and never exactly. Push this flow toward order and it grows sterile;
+        push it toward chaos and it comes apart. Between the two is a narrow country where the
+        pattern breathes. Find it.
+      </p>
+      <p class="lineage">After the Alhambra’s tilework and Vera Molnár’s <em>désordres</em> — order perturbed on purpose.</p>
+    </div>
+    <figure class="instrument__stage">
+      <canvas data-role="canvas" width="640" height="640" role="img"
+        aria-label="A twelve-fold rosette construction. A single slider moves it from a perfect crystalline pattern, through a living near-symmetry, into chaos."></canvas>
+      <div class="controls">
+        <p class="hint">Slide toward Life — stop where it comes alive.</p>
+        <label class="control">
+          <span class="control__label">Order → Life → Chaos</span>
+          <input type="range" data-role="life" min="0" max="1" step="0.01" value="0.42"
+            aria-label="Amount of life: from order to chaos" />
+        </label>
+        <p class="readout" data-role="readout" aria-live="polite"></p>
+      </div>
+    </figure>
+  </section>
+
+  <!-- IV · CONTRAST -->
+  <section id="contrast" class="instrument instrument--dark" data-instrument="contrast" aria-labelledby="h-contrast">
+    <div class="instrument__text">
+      <p class="numeral">IV</p>
+      <h2 id="h-contrast">Contrast</h2>
+      <p>
+        A sphere in flat, front-on light is only a disc — it has forgotten it is round. Rake the
+        light to the side and shadow carves it back into a body; push too far and it is swallowed
+        by the dark. The beauty here is not colour or line but <em>value</em> — the distance
+        between light and shadow — and it needs a little darkness to arrive in.
+      </p>
+      <p class="lineage">The chiaroscuro of Caravaggio, Georges de La Tour, and Rembrandt — form found in the fall of light.</p>
+    </div>
+    <figure class="instrument__stage">
+      <canvas data-role="canvas" width="640" height="640" role="img"
+        aria-label="A sphere emerging from darkness, lit from the side; a slider moves the light from flat to raking."></canvas>
+      <div class="controls">
+        <p class="hint">Rake the light. Stop where the form turns gold.</p>
+        <label class="control">
+          <span class="control__label">Flat → Raking light</span>
+          <input type="range" data-role="light" min="0" max="1" step="0.01" value="0.7"
+            aria-label="Light angle: from flat front light to raking side light" />
+        </label>
+        <p class="readout" data-role="readout" aria-live="polite"></p>
+      </div>
+    </figure>
+  </section>
+
+  <!-- V · IMPERFECTION -->
+  <section id="imperfection" class="instrument" data-instrument="imperfection" aria-labelledby="h-imperfection">
+    <div class="instrument__text">
+      <p class="numeral">V</p>
+      <h2 id="h-imperfection">Imperfection</h2>
+      <p>
+        When a bowl breaks in Japan it is sometimes mended with lacquer and gold, so the seam
+        becomes the most treasured thing about it. This is <em>kintsugi</em>. It refuses the
+        lie that a thing was best before it was hurt. Break this vessel — then mend it, and
+        watch it become not repaired, but finished.
+      </p>
+      <p class="lineage">金継ぎ — kintsugi; the wabi-sabi of Sōetsu Yanagi and Leonard Koren.</p>
+    </div>
+    <figure class="instrument__stage">
+      <canvas data-role="canvas" width="640" height="640" role="img"
+        aria-label="A ceramic vessel that can be fractured and then mended, its cracks filled with gold."></canvas>
+      <div class="controls">
+        <p class="hint">It is broken. Mend it.</p>
+        <div class="btn-row">
+          <button type="button" class="btn" data-role="break">Break it</button>
+          <button type="button" class="btn btn--gold" data-role="mend">Mend with gold</button>
+        </div>
+        <label class="control">
+          <span class="control__label">Fracture</span>
+          <input type="range" data-role="broken" min="1" max="5" step="1" value="3" aria-label="How many fractures" />
+        </label>
+        <p class="readout" data-role="readout" aria-live="polite"></p>
+      </div>
+    </figure>
+  </section>
+
+  <!-- FINALE · THE BEHOLDER -->
+  <section id="beholder" class="instrument beholder" data-instrument="beholder" aria-labelledby="h-beholder">
+    <div class="instrument__text">
+      <p class="numeral">VI</p>
+      <h2 id="h-beholder">The Beholder</h2>
+      <p>
+        Everything until now was waiting for you. Beauty is not stored in a thing like heat in
+        a stone; it happens, once, in the meeting of the thing and an eye willing to stay.
+        This bloom is not random: it is composed from where you left the five instruments —
+        the angle you chose, the interval you locked, the life you found, the light you raked,
+        and the vessel you mended. The structure invited it; you completed it. Beauty was the
+        meeting, not the stone. Name it. It is yours.
+      </p>
+    </div>
+    <figure class="instrument__stage">
+      <canvas data-role="canvas" width="720" height="720" role="img" aria-label="A bloom composed from your visit."></canvas>
+      <figure class="artifact" role="status" aria-live="polite">
+        <figcaption class="artifact__name" data-role="name">—</figcaption>
+        <blockquote class="artifact__line" data-role="line">—</blockquote>
+        <p class="artifact__sig" data-role="signature"></p>
+      </figure>
+      <div class="controls">
+        <p class="hint">Made from your play. Name it, then keep it.</p>
+        <label class="control control--text">
+          <span class="control__label">Name your bloom</span>
+          <input type="text" data-role="rename" maxlength="40" autocomplete="off" spellcheck="false" />
+        </label>
+        <div class="btn-row">
+          <button type="button" class="btn" data-role="again">Again</button>
+          <button type="button" class="btn btn--gold" data-role="download">Download</button>
+        </div>
+      </div>
+    </figure>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <nav class="site-footer__nav" aria-label="Pages">
+    <a href="./">Instruments</a> · <a href="concepts.html">Concepts</a> · <a href="about.html">About</a> · <a href="colophon.html">Colophon</a>
+  </nav>
+  <p>KALÓN — Instruments of Beauty · built by Claude with Hulki Okan Tabak · 2026</p>
+</footer>
+
+<script src="js/core.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/proportion.js"></script>
+<script src="js/harmony.js"></script>
+<script src="js/symmetry.js"></script>
+<script src="js/contrast.js"></script>
+<script src="js/imperfection.js"></script>
+<script src="js/beholder.js"></script>
+<script src="js/boot.js"></script>
+<!-- GoatCounter — privacy-friendly, cookieless page-view analytics (no personal data) -->
+<script data-goatcounter="https://kalon.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

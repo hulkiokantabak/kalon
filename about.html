@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://gc.zgo.at; style-src 'self'; img-src 'self' data: https://kalon.goatcounter.com; font-src 'self'; connect-src https://kalon.goatcounter.com; manifest-src 'self'; base-uri 'none'; form-action 'none'" />
+<title>About — KALÓN</title>
+<meta name="description" content="How KALÓN is built: the honest mathematics of its five instruments, its architecture, accessibility, privacy, method, and project metrics." />
+<meta name="color-scheme" content="light" />
+<meta name="theme-color" content="#f4efe6" />
+<link rel="icon" type="image/png" href="assets/icon-192.png" />
+<link rel="apple-touch-icon" href="assets/icon-180.png" />
+<link rel="manifest" href="manifest.webmanifest" />
+<meta name="apple-mobile-web-app-title" content="KALÓN" />
+<link rel="stylesheet" href="css/kalon.css" />
+</head>
+<body class="page">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="masthead__inner">
+    <a class="wordmark" href="./">KALÓN</a>
+    <nav class="masthead__nav" aria-label="Pages">
+      <a href="./">Instruments</a>
+      <a href="concepts.html">Concepts</a>
+      <a href="about.html" aria-current="page">About</a>
+      <a href="colophon.html">Colophon</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <article class="about page-section" aria-labelledby="h-about">
+    <h1 id="h-about">About &amp; technical notes</h1>
+    <p class="about__lede">
+      KALÓN — Instruments of Beauty — began as a single instruction, <em>build beauty</em>, handed
+      to an AI agent (Claude) with one hard rule (do no harm) and asked to carry it, alone, from
+      idea to a finished, audited, honest object. The name is Greek — <em>kalón</em>,
+      <em>the beautiful</em>, and to the Greeks the noble and the good as well; the
+      <a href="colophon.html#name">colophon</a> tells the word’s story. This page is for the
+      technically curious: what it is made of, the real mathematics behind each instrument, and its
+      honest metrics.
+    </p>
+
+    <h2>Architecture</h2>
+    <p>
+      Buildless and dependency-free: hand-written HTML, one CSS file, and a handful of vanilla
+      JavaScript modules drawing to Canvas 2D — no framework, no bundler, no CDN, no external fonts.
+      After the page loads it makes <strong>zero network requests</strong> except an anonymous
+      GoatCounter page-view ping (see Privacy). It runs identically from <code>file://</code> and
+      offline, and a strict Content-Security-Policy locks the surface down to a named-host
+      allowlist. The empty supply chain is also the security posture: two audit dimensions pass by
+      construction.
+    </p>
+
+    <h2>The five instruments — the honest mathematics</h2>
+    <ul class="about__list">
+      <li><strong>Proportion</strong> — phyllotaxis (Vogel 1979): the nth floret at angle
+        <em>n·θ</em>, radius <em>c·√n</em>. Only near the golden angle <em>θ ≈ 137.508°</em>
+        (= 360°/φ²) do the florets pack without spokes, because φ is the number hardest to
+        approximate by any simple fraction (its continued fraction is all 1s). The golden
+        <em>ratio</em> as a universal "formula of beauty" is a myth, and the piece declines it.</li>
+      <li><strong>Harmony</strong> — a harmonograph (damped Lissajous). Simple frequency ratios —
+        the octave 2:1, the fifth 3:2, the fourth 4:3 — trace closed, repeating figures, as
+        musical consonance resolves; ratios with no simple form never exactly repeat. These are
+        the pure <em>just-intonation</em> ratios; equal temperament rounds them off (a piano's
+        fifth is 700 cents, ~2 cents flat of the just 701.955).</li>
+      <li><strong>Symmetry &amp; Variation</strong> — a twelve-fold rosette <em>construction</em>
+        (C12 with a mirror through each petal), in the Islamic-geometry / Vera Molnár
+        <em>désordre</em> tradition. At désordre 0 every petal is identical (crystalline, a little
+        dead); a "life" slider adds controlled, per-petal deviation, so the rosette is alive in the
+        middle band and flies apart into chaos at the top.</li>
+      <li><strong>Contrast</strong> — chiaroscuro. A sphere is modelled by a light whose direction
+        the visitor rakes from flat (front-on, no form) to grazing. Beauty here is
+        <em>value</em> — the distance between light and shadow; a gold rim-light glints at the
+        band where the form reads most sculptural.</li>
+      <li><strong>Imperfection</strong> — kintsugi (金継ぎ). A clean vessel is fractured (a
+        recursive midpoint-displacement crack network) and mended; the gold fills the seam. That a
+        mended thing is more itself is wabi-sabi's stance, offered — not asserted as fact.</li>
+    </ul>
+
+    <h2>The finale is a portrait of your play</h2>
+    <p>
+      "The Beholder" does not roll dice. It reads the state you left each instrument in — the
+      divergence angle, the locked interval, the "life" value, the raked light, the mend — and
+      composes a bloom from exactly those: the palette is chosen by the move you engaged most, the
+      geometry is reshaped by it, the aphorism is selected from that move's cluster, and a visible
+      signature (e.g. <code>θ 142.0° · 4:3 · life 72 · light 55 · mended</code>) lets you audit it.
+      Touch nothing and it says so ("the defaults — play the instruments to compose your own"). It
+      is downloadable as a framed PNG; nothing is uploaded.
+    </p>
+
+    <h2>Design, accessibility, privacy</h2>
+    <p>
+      One system: warm paper, near-black ink, a single gold accent that appears only when a move
+      succeeds; full colour returns only in the finale (yours). WCAG AA is met and measured (below).
+      <code>prefers-reduced-motion</code> is honoured with a meaningful still per instrument; a
+      single motion governor prevents any photosensitive hazard (no &gt;3 Hz full-field flashing);
+      controls are keyboard-operable and screen-reader-labelled. On privacy: only GoatCounter's
+      anonymous, cookieless page-view count leaves the browser — no cookies, no fingerprinting, no
+      cross-site tracking, no personal data.
+    </p>
+
+    <h2>How it was made (the method)</h2>
+    <p>
+      The build followed a repeatable method — packaged as the <em>concept-forge</em> skill with its
+      <em>concept-council</em> expert panel: interpret the brief into one concrete product; document
+      aims/method/ground-rules up front; build the craft; pressure-test with parallel
+      designed-disagreement agent swarms and simulated playtesters; run a fixed audit sequence
+      (editorial → compatibility → security → vulnerability → bug-fix, with self-audit, accessibility
+      and performance woven through); reflect in two steps; then publish. <strong>Honest caveat:</strong>
+      every subjective verdict (that it is beautiful, that testers would share it) was produced by
+      simulated model-personas, not human subjects. It measures internal coherence, not audience data.
+    </p>
+
+    <h2>Project metrics</h2>
+    <table class="about__metrics">
+      <tbody>
+        <tr><th scope="row">Runtime dependencies</th><td>0 (buildless, no framework/CDN/fonts)</td></tr>
+        <tr><th scope="row">Network requests after load</th><td>0, apart from one anonymous GoatCounter page-view</td></tr>
+        <tr><th scope="row">Text contrast (measured)</th><td>ink 15.2:1 · secondary 6.4:1 · gold-text 5.7:1 (all pass WCAG AA)</td></tr>
+        <tr><th scope="row">Reduced-motion / photosensitivity</th><td>honoured per instrument · no &gt;3 Hz full-field change</td></tr>
+        <tr><th scope="row">Generative "ugly-output floor"</th><td>30 random finale seeds sampled → bloom coverage 15–26%, 0 degenerate</td></tr>
+        <tr><th scope="row">Console errors</th><td>0 across load + interaction</td></tr>
+        <tr><th scope="row">Instruments</th><td>5 playable + 1 finale, entry-from-anywhere</td></tr>
+        <tr><th scope="row">Review passes</th><td>concept council, playtest, and audit swarms — raw output retained in the repo</td></tr>
+      </tbody>
+    </table>
+    <p class="about__meta">
+      Full method, decisions, panels, tests, audits, and a portable evaluation report live in the
+      project repository. — 2026
+    </p>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <nav class="site-footer__nav" aria-label="Pages">
+    <a href="./">Instruments</a> · <a href="concepts.html">Concepts</a> · <a href="about.html">About</a> · <a href="colophon.html">Colophon</a>
+  </nav>
+  <p>KALÓN — Instruments of Beauty · built by Claude with Hulki Okan Tabak · 2026</p>
+</footer>
+
+<!-- GoatCounter — privacy-friendly, cookieless page-view analytics (no personal data) -->
+<script data-goatcounter="https://kalon.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

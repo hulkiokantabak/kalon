@@ -1,0 +1,327 @@
+/* KALÓN — kalon.css
+ * A small, calm design system. System fonts only (nothing fetched). One paper,
+ * one ink, one gold accent, a few muted tones. Serif for the voice, sans for the
+ * controls. Generous whitespace; the canvases carry the motion, the page stays still.
+ */
+
+/* ---------- tokens ---------- */
+:root {
+  --paper: #f4efe6;
+  --paper-2: #efe7d9;
+  --ink: #1c1a17;                      /* 15.2:1 on paper */
+  --ink-soft: #5b554c;                 /* 6.4:1 — secondary text */
+  --ink-mute: rgba(28, 26, 23, 0.42);  /* NON-TEXT only (hairlines, decorative marks) — fails text contrast */
+  --ink-faint: rgba(28, 26, 23, 0.14);
+  --gold: #b8843f;                     /* GRAPHIC marks only (canvas) — 2.9:1, fails text */
+  --gold-deep: #7d5620;                /* gold for TEXT / UI / focus — 5.7:1 on paper (AA) */
+  --gold-text: var(--gold-deep);
+  --accent: var(--gold-deep);
+
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --maxw: 70rem;
+  --measure: 42ch;
+  --radius: 4px;
+
+  /* modular scale (~1.25) on an 18px base */
+  --t-0: 1.125rem;
+  --t-1: 1.406rem;
+  --t-2: 1.758rem;
+  --t-3: 2.197rem;
+  --t-4: 2.75rem;
+  --t-5: clamp(2.6rem, 7vw, 4.3rem);
+}
+
+/* ---------- reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: var(--t-0);
+  line-height: 1.62;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { line-height: 1.12; font-weight: 600; margin: 0; }
+p { margin: 0 0 1.1em; }
+em { font-style: italic; }
+strong { font-weight: 600; }
+img, canvas { max-width: 100%; display: block; }
+:focus-visible { outline: 2px solid var(--gold-deep); outline-offset: 3px; border-radius: 2px; }
+
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.skip-link {
+  position: absolute; left: -999px; top: 0; z-index: 100;
+  background: var(--ink); color: var(--paper); padding: 0.6em 1em; border-radius: var(--radius);
+  font-family: var(--sans); font-size: 0.9rem; text-decoration: none;
+}
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+/* ---------- masthead ---------- */
+.masthead {
+  position: sticky; top: 0; z-index: 20;
+  background: rgba(244, 239, 230, 0.9);                          /* fallback where color-mix() is unsupported */
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--ink-faint);
+}
+.masthead__inner {
+  max-width: var(--maxw); margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; padding: 0.7rem 1.25rem;
+}
+.wordmark {
+  font-family: var(--serif); font-weight: 600; letter-spacing: 0.24em;
+  font-size: 1.15rem; color: var(--ink); text-decoration: none; padding-left: 0.24em;
+}
+.masthead__controls { display: flex; gap: 0.5rem; }
+.toggle {
+  font-family: var(--sans); font-size: 0.78rem; letter-spacing: 0.02em;
+  color: var(--ink-soft); background: transparent; border: 1px solid var(--ink-faint);
+  border-radius: 999px; padding: 0.34em 0.85em; cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.toggle:hover { color: var(--ink); border-color: var(--ink-mute); }
+.toggle[aria-pressed="true"] { color: var(--gold-deep); border-color: color-mix(in srgb, var(--gold) 55%, transparent); }
+
+/* ---------- overture ---------- */
+main { display: block; }
+section { scroll-margin-top: 4.5rem; }
+.overture {
+  max-width: 48rem; margin: 0 auto; text-align: center;
+  padding: min(20vh, 9rem) 1.25rem min(12vh, 6rem);
+}
+.kicker {
+  font-family: var(--sans); text-transform: uppercase; letter-spacing: 0.32em;
+  font-size: 0.76rem; color: var(--gold-deep); margin-bottom: 1.5rem;
+}
+.display { font-size: var(--t-5); letter-spacing: -0.015em; margin-bottom: 1.2rem; }
+.lede { font-size: var(--t-1); color: var(--ink); max-width: 34rem; margin: 0 auto; }
+.lede em { color: var(--gold-deep); font-style: italic; }
+.scroll-hint {
+  margin-top: 2.6rem; font-size: 1.3rem; color: var(--ink-soft);
+  animation: bob 2.4s ease-in-out infinite;
+}
+.scroll-hint__label {
+  display: block; font-family: var(--sans); font-size: 0.76rem;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 0.35rem;
+}
+@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+
+/* ---------- instruments ---------- */
+.instrument {
+  max-width: 46rem; margin: 0 auto;
+  padding: clamp(3rem, 9vh, 7rem) 1.25rem;
+  border-top: 1px solid var(--ink-faint);
+}
+.instrument__text { max-width: 40rem; margin: 0 auto 2.2rem; text-align: center; }
+.numeral {
+  font-family: var(--serif); font-size: var(--t-2); color: var(--gold-deep);
+  margin: 0 0 0.2em; letter-spacing: 0.08em; font-style: italic; font-weight: 600;
+}
+.instrument__text h2 { font-size: var(--t-3); margin-bottom: 0.7rem; }
+.instrument__text p { color: var(--ink-soft); text-align: left; max-width: 40ch; margin-inline: auto; }
+.lineage {
+  font-family: var(--sans); font-size: 0.76rem; color: var(--ink-soft);
+  letter-spacing: 0.01em; margin: 0.9rem auto 0; max-width: 42ch; font-style: normal;
+}
+.lineage em { font-style: italic; color: var(--ink-soft); }
+.hint {
+  font-family: var(--sans); font-size: 0.8rem; color: var(--gold-deep);
+  text-align: center; margin: 0 0 0.2rem; transition: opacity 0.4s ease;
+}
+.hint.is-hidden { opacity: 0; }
+
+.instrument__stage { margin: 0; }
+.instrument__stage > canvas {
+  width: 100%; max-width: 34rem; aspect-ratio: 1 / 1; height: auto;
+  margin: 0 auto; background: var(--paper-2);
+  border: 1px solid var(--ink-faint); border-radius: var(--radius);
+}
+.instrument[data-instrument="proportion"] canvas { touch-action: pan-y; cursor: ew-resize; }
+
+/* ---------- controls ---------- */
+.controls {
+  max-width: 26rem; margin: 1.4rem auto 0;
+  display: flex; flex-direction: column; gap: 1rem; align-items: stretch;
+}
+.control { display: flex; flex-direction: column; gap: 0.4rem; }
+.control__label {
+  font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--ink-soft); text-align: center;
+}
+.control--text input {
+  font-family: var(--serif); font-size: 1.05rem; text-align: center;
+  padding: 0.4em 0.6em; background: var(--paper); color: var(--ink);
+  border: 1px solid var(--ink-faint); border-radius: var(--radius);
+}
+.readout {
+  font-family: var(--sans); font-size: 0.82rem; color: var(--ink-soft);
+  text-align: center; min-height: 1.4em; margin: 0; font-variant-numeric: tabular-nums;
+}
+.readout em { color: var(--gold-deep); font-style: normal; }
+
+.btn-row { display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; }
+.btn {
+  font-family: var(--sans); font-size: 0.85rem; letter-spacing: 0.02em;
+  color: var(--ink); background: transparent; cursor: pointer;
+  border: 1px solid var(--ink-mute); border-radius: 999px; padding: 0.5em 1.15em;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.btn:hover { border-color: var(--ink); background: color-mix(in srgb, var(--ink) 5%, transparent); }
+.btn--gold { color: var(--gold-deep); border-color: color-mix(in srgb, var(--gold) 55%, transparent); }
+.btn--gold:hover { background: color-mix(in srgb, var(--gold) 12%, transparent); border-color: var(--gold); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+.chip {
+  font-family: var(--sans); font-size: 0.82rem; color: var(--ink-soft);
+  background: transparent; border: 1px solid var(--ink-faint); border-radius: 999px;
+  padding: 0.4em 0.85em; cursor: pointer; transition: all 0.2s;
+}
+.chip span { color: var(--ink-soft); font-variant-numeric: tabular-nums; margin-left: 0.15em; }
+.chip:hover { border-color: var(--ink-mute); color: var(--ink); }
+.chip[aria-pressed="true"] {
+  color: var(--paper); background: var(--gold-deep); border-color: var(--gold-deep);
+}
+.chip[aria-pressed="true"] span { color: color-mix(in srgb, var(--paper) 80%, transparent); }
+
+/* ---------- range input ---------- */
+input[type="range"] {
+  -webkit-appearance: none; appearance: none; width: 100%; height: 26px;
+  background: transparent; cursor: pointer;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 2px; background: var(--ink-faint); border-radius: 2px;
+}
+input[type="range"]::-moz-range-track { height: 2px; background: var(--ink-faint); border-radius: 2px; }
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none; width: 18px; height: 18px; margin-top: -8px;
+  background: var(--paper); border: 2px solid var(--gold-deep); border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 18px; height: 18px; background: var(--paper); border: 2px solid var(--gold-deep);
+  border-radius: 50%; box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+
+/* ---------- beholder finale ---------- */
+.beholder .instrument__stage > canvas { max-width: 30rem; border-radius: var(--radius); }
+.artifact { margin: 1.4rem auto 0; text-align: center; max-width: 32rem; }
+.artifact__name { font-family: var(--serif); font-size: var(--t-2); color: var(--ink); }
+.artifact__line {
+  font-family: var(--serif); font-style: italic; font-size: var(--t-1);
+  color: var(--gold-deep); margin: 0.5rem auto 0; max-width: 28rem; line-height: 1.4;
+}
+.artifact__sig {
+  font-family: var(--sans); font-size: 0.74rem; color: var(--ink-soft);
+  letter-spacing: 0.04em; margin: 0.9rem 0 0; font-variant-numeric: tabular-nums;
+}
+
+/* ---------- colophon ---------- */
+.colophon {
+  max-width: 40rem; margin: 0 auto; padding: clamp(3rem, 9vh, 7rem) 1.25rem 6rem;
+  border-top: 1px solid var(--ink-faint); color: var(--ink-soft); font-size: 0.98rem;
+}
+.colophon h2 { font-size: var(--t-2); color: var(--ink); margin-bottom: 1.2rem; text-align: center; }
+.colophon__meta {
+  font-family: var(--sans); font-size: 0.78rem; color: var(--ink-soft);
+  letter-spacing: 0.02em; text-align: center; margin-top: 2rem; line-height: 1.9;
+}
+.colophon__link { color: var(--gold-deep); }
+
+/* ---------- experimental concepts ---------- */
+.experiments {
+  max-width: 40rem; margin: 0 auto; padding: clamp(3rem, 9vh, 7rem) 1.25rem 2rem;
+  border-top: 1px solid var(--ink-faint); color: var(--ink-soft);
+}
+.experiments h2 { font-size: var(--t-2); color: var(--ink); margin-bottom: 1.1rem; text-align: center; }
+.experiments p { max-width: 42ch; margin: 0 auto 1.6rem; }
+.experiments__list { list-style: none; margin: 0 auto; padding: 0; max-width: 34rem; }
+.experiments__list li {
+  display: flex; flex-direction: column; gap: 0.15rem; padding: 0.9rem 0;
+  border-top: 1px solid var(--ink-faint); text-align: center;
+}
+.experiments__list a { font-family: var(--serif); font-size: var(--t-1); color: var(--ink); text-decoration: none; }
+.experiments__list a:hover { color: var(--gold-deep); }
+.experiments__list span { font-family: var(--sans); font-size: 0.76rem; color: var(--ink-soft); letter-spacing: 0.04em; }
+.experiments__soon { opacity: 0.65; }
+.experiments__soon span { font-style: italic; }
+
+/* dark instrument (Contrast): frame the dark canvas so it reads as a framed image on the paper wall */
+.instrument--dark .instrument__stage > canvas { background: #14110d; border-color: rgba(28, 26, 23, 0.4); }
+
+/* ---------- wide screens: give instruments a touch more presence ---------- */
+@media (min-width: 60rem) {
+  .instrument { max-width: 52rem; }
+  .instrument__stage > canvas { max-width: 36rem; }
+}
+
+/* ---------- narrow screens: keep a control near the canvas (mobile fold) ---------- */
+@media (max-width: 40rem) {
+  .overture { padding: 2.4rem 1.25rem 2rem; }   /* shorter hero → the playable cue lands near the fold */
+  .lede { font-size: 1.04rem; line-height: 1.5; }
+  .instrument { padding: 3rem 1.1rem; }
+  .instrument__text { margin-bottom: 1.3rem; }
+  .instrument__stage > canvas,
+  .beholder .instrument__stage > canvas { max-width: min(100%, 74vw); }
+  .controls { margin-top: 0.9rem; }
+  .display { font-size: clamp(2.3rem, 10vw, 3rem); }
+  .toggle, .chip { min-height: 44px; display: inline-flex; align-items: center; }  /* thumb-friendly targets */
+}
+
+/* ---------- navigation (multi-page) ---------- */
+.masthead__inner { flex-wrap: wrap; }
+.masthead__nav { display: flex; flex-wrap: wrap; gap: 0.1rem 1.05rem; align-items: center; }
+.masthead__nav a {
+  font-family: var(--sans); font-size: 0.82rem; letter-spacing: 0.02em;
+  color: var(--ink-soft); text-decoration: none; padding: 0.2rem 0; white-space: nowrap;
+}
+.masthead__nav a:hover { color: var(--ink); }
+.masthead__nav a[aria-current="page"] { color: var(--gold-deep); }
+
+.site-footer {
+  max-width: var(--maxw); margin: 4rem auto 0; padding: 2rem 1.25rem 3rem;
+  border-top: 1px solid var(--ink-faint); text-align: center;
+}
+.site-footer__nav { font-family: var(--sans); font-size: 0.82rem; color: var(--ink-soft); margin-bottom: 0.6rem; }
+.site-footer__nav a { color: var(--ink-soft); text-decoration: none; }
+.site-footer__nav a:hover { color: var(--gold-deep); }
+.site-footer p { font-family: var(--sans); font-size: 0.74rem; color: var(--ink-soft); margin: 0; letter-spacing: 0.02em; }
+
+/* ---------- content pages (concepts / about / colophon) ---------- */
+.page-section { border-top: none; padding-top: clamp(2.5rem, 8vh, 5rem); }
+.page-section h1 { font-size: var(--t-2); color: var(--ink); text-align: center; margin-bottom: 1.3rem; line-height: 1.14; }
+
+.about { max-width: 40rem; margin: 0 auto; padding: clamp(2.5rem, 8vh, 5rem) 1.25rem 2rem; color: var(--ink-soft); }
+.about__lede { font-size: var(--t-1); color: var(--ink); margin: 0 0 2rem; }
+.about h2 { font-family: var(--serif); font-size: var(--t-1); color: var(--ink); margin: 2.2rem 0 0.7rem; text-align: left; }
+.about__list { padding-left: 1.1rem; }
+.about__list li { margin-bottom: 0.7rem; }
+.about code { font-size: 0.9em; background: var(--paper-2); padding: 0.05em 0.35em; border-radius: 3px; word-break: break-word; }
+.about__metrics { width: 100%; border-collapse: collapse; margin: 0.5rem 0 1.5rem; font-size: 0.9rem; }
+.about__metrics th, .about__metrics td { text-align: left; vertical-align: top; padding: 0.55rem 0.5rem; border-top: 1px solid var(--ink-faint); }
+.about__metrics th { font-family: var(--sans); font-weight: 600; color: var(--ink); width: 40%; }
+.about__meta { font-family: var(--sans); font-size: 0.78rem; color: var(--ink-soft); margin-top: 2rem; }
+
+/* ---------- Windows High Contrast / forced-colors: preserve state without colour ---------- */
+@media (forced-colors: active) {
+  /* pressed chips/toggles lose their gold fill under forced colours — restore a non-colour cue */
+  .chip[aria-pressed="true"],
+  .toggle[aria-pressed="true"] { outline: 2px solid; outline-offset: -3px; }
+  .toggle[aria-pressed="true"]::before { content: "● "; }
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .scroll-hint { animation: none; }
+  * { transition-duration: 0.001ms !important; animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; }
+}
